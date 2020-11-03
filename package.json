@@ -1,0 +1,25 @@
+{
+  "name": "aktenzeichen",
+  "description": "",
+  "version": "0.1.0",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "dependencies": {
+    "class-transformer": "^0.3.1",
+    "es6-shim": "^0.35.6",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.20",
+    "@types/node": "^10.12.18",
+    "jest": "^24.9.0",
+    "merge": "^1.2.1",
+    "mockdate": "^3.0.2",
+    "ts-jest": "^24.1.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.4",
+    "webpack": "^4.29.0"
+  }
+}
