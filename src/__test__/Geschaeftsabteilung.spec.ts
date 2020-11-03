@@ -9,6 +9,5 @@ describe('Geschäftsabteilung', () => {
 
     it('should throw error if value include none numeric values', () => {
         expect(() => new Geschaeftsabteilung("123j")).toThrowError();
-
     });
 });

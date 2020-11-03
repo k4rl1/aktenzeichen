@@ -1,4 +1,6 @@
-export default class Geschaeftsabteilung {
+export const validGattungszeichen: string[] = ['BE', 'BergB', 'W II', 'Verschluß','BVK-V'];
+
+export default class Gattungszeichen {
     private readonly value: string;
 
     constructor(value: string) {
@@ -10,7 +12,7 @@ export default class Geschaeftsabteilung {
 
     // noinspection JSMethodCanBeStatic
     private validate(value: string) {
-        return RegExp(/^\d{1,3}$/).test(value);
+        return validGattungszeichen.includes(value) && RegExp(/^([a-zA-Z\s-ß]+)$/).test(value);;
     }
 
     getValue() {
