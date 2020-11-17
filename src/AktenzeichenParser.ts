@@ -41,7 +41,7 @@ export default class AktenzeichenParser {
         ].join(''));
     }
 
-// noinspection JSMethodCanBeStatic
+    // noinspection JSMethodCanBeStatic
     private getTrimmedGroupValue(groups, groupName: string) {
         return groups.groups[groupName].trim();
     }
