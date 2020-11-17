@@ -1,6 +1,4 @@
-export const validGattungszeichen: string[] = ['BE', 'BergB', 'W II', 'Verschluß','BVK-V'];
-
-export default class Gattungszeichen {
+export default class Ordnungszahl {
     private readonly value: string;
 
     constructor(value: string) {
@@ -12,7 +10,7 @@ export default class Gattungszeichen {
 
     // noinspection JSMethodCanBeStatic
     private validate(value: string) {
-        return validGattungszeichen.includes(value) && RegExp(/^([a-zA-Z\s-ß]+)$/).test(value);
+        return RegExp(/^(\d{1,3})\s?(?:\((.*)\))?$/).test(value);
     }
 
     getValue() {
