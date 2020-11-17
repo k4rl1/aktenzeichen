@@ -1,5 +1,7 @@
 export default class Geschaeftsabteilung {
     private readonly value: string;
+    public static readonly groupName: string = "geschaeftsabteliung";
+    public static readonly groupPattern: string = `(?<${Geschaeftsabteilung.groupName}>\\d{1,3}\\s)?`;
 
     constructor(value: string) {
         if (!this.validate(value)) {

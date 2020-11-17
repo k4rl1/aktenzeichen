@@ -1,5 +1,7 @@
 export default class Aktenzahl {
     private readonly value: string;
+    public static readonly groupName: string = "aktenzahl";
+    public static readonly groupPattern: string = `(?<${Aktenzahl.groupName}>\\d{1,5})`;
 
     constructor(value: string) {
         if (!this.validate(value)) {

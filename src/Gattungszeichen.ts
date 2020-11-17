@@ -2,6 +2,8 @@ export const validGattungszeichen: string[] = ['BE', 'BergB', 'W II', 'Verschlu√
 
 export default class Gattungszeichen {
     private readonly value: string;
+    public static readonly groupName: string = "gattungszeichen";
+    public static readonly groupPattern: string = `(?<${Gattungszeichen.groupName}>[a-zA-Z\\s\\-√ü]+)`;
 
     constructor(value: string) {
         if (!this.validate(value)) {

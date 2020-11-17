@@ -1,5 +1,7 @@
 export default class Ordnungszahl {
     private readonly value: string;
+    public static readonly groupName: string = "ordnungszahl";
+    public static readonly groupPattern: string = `(?<${Ordnungszahl.groupName}>(\\d{1,3})\\s?(\\((.*)\\))?)`;
 
     constructor(value: string) {
         if (!this.validate(value)) {

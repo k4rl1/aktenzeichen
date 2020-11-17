@@ -1,5 +1,7 @@
 export default class Jahr {
     private readonly value: string;
+    public static readonly groupName: string = "jahr";
+    public static readonly groupPattern: string = `(?<${Jahr.groupName}>\\d{2}|\\d{4})`;
 
     constructor(value: string) {
         if (!this.validate(value)) {
