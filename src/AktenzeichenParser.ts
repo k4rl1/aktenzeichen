@@ -8,10 +8,11 @@ import Aktenzahl from "@/Aktenzahl";
 export default class AktenzeichenParser {
     public static readonly jahrSeparator: string = `\\/`;
     public static readonly preufbuchstabe: string = `\\w?`;
-    public static readonly ordnungszahlSeparator: string = `\\s?\\-\\s?`;
+    public static readonly ordnungszahlSeparator: string = `\\s?\\-?\\s?`;
 
     public parse(value: string): Aktenzeichen {
         const groups = value.match(this.buildGroupRegex());
+
         if (!groups) {
             return null;
         }
@@ -21,7 +22,10 @@ export default class AktenzeichenParser {
         aktenzeichen.gattungszeichen = new Gattungszeichen(this.getTrimmedGroupValue(groups, Gattungszeichen.groupName));
         aktenzeichen.aktenzahl = new Aktenzahl(this.getTrimmedGroupValue(groups, Aktenzahl.groupName));
         aktenzeichen.jahr = new Jahr(this.getTrimmedGroupValue(groups, Jahr.groupName));
-        aktenzeichen.ordnungszahl = new Ordnungszahl(this.getTrimmedGroupValue(groups, Ordnungszahl.groupName));
+
+        if(this.hasGroup(groups, Ordnungszahl.groupName)) {
+            aktenzeichen.ordnungszahl = new Ordnungszahl(this.getTrimmedGroupValue(groups, Ordnungszahl.groupName));
+        }
 
         return aktenzeichen;
     }
@@ -41,8 +45,13 @@ export default class AktenzeichenParser {
         ].join(''));
     }
 
-// noinspection JSMethodCanBeStatic
+    // noinspection JSMethodCanBeStatic
     private getTrimmedGroupValue(groups, groupName: string) {
         return groups.groups[groupName].trim();
+    }
+
+    // noinspection JSMethodCanBeStatic
+    private hasGroup(groups, groupName: string) {
+        return groups.groups[groupName];
     }
 }
